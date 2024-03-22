@@ -8,6 +8,21 @@ namespace DescontoProduto
         private double preco;
         private int quantidade;
 
+        public DescontoProduto() // Construtor sem parâmetros
+        {
+            // Leitura do nome do produto
+            Console.WriteLine("Digite o nome do produto: ");
+            nome = Console.ReadLine();
+
+            // Leitura do preço do produto
+            Console.WriteLine("Digite o preço do produto: ");
+            preco = LerValorDouble();
+
+            // Leitura da quantidade do produto
+            Console.WriteLine("Digite a quantidade do produto: ");
+            quantidade = LerValorInteiro();
+        }
+
         public DescontoProduto(string nome, double preco, int quantidade)
         {
             this.nome = nome;
@@ -60,6 +75,28 @@ namespace DescontoProduto
         public int ObterQuantidade()
         {
             return quantidade;
+        }
+
+        // Função para ler um valor double do console
+        static double LerValorDouble()
+        {
+            double valor;
+            while (!double.TryParse(Console.ReadLine(), out valor))
+            {
+                Console.WriteLine("Valor inválido. Digite novamente: ");
+            }
+            return valor;
+        }
+
+        // Função para ler um valor inteiro do console
+        static int LerValorInteiro()
+        {
+            int valor;
+            while (!int.TryParse(Console.ReadLine(), out valor))
+            {
+                Console.WriteLine("Valor inválido. Digite novamente: ");
+            }
+            return valor;
         }
     }
 }
