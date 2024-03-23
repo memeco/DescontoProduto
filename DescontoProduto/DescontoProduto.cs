@@ -4,48 +4,48 @@ namespace DescontoProduto
 {
     public class DescontoProduto
     {
-        private string nome;
-        private double preco;
-        private int quantidade;
+        private string _nome;
+        private double _preco;
+        private int _quantidade;
 
         public DescontoProduto() // Construtor sem parâmetros
         {
             // Leitura do nome do produto
             Console.WriteLine("Digite o nome do produto: ");
-            nome = Console.ReadLine();
+            _nome = Console.ReadLine();
 
             // Leitura do preço do produto
             Console.WriteLine("Digite o preço do produto: ");
-            preco = LerValorDouble();
+            _preco = LerValorDouble();
 
             // Leitura da quantidade do produto
             Console.WriteLine("Digite a quantidade do produto: ");
-            quantidade = LerValorInteiro();
+            _quantidade = LerValorInteiro();
         }
 
         public DescontoProduto(string nome, double preco, int quantidade)
         {
-            this.nome = nome;
-            this.preco = preco;
-            this.quantidade = quantidade;
+            this._nome = nome;
+            this._preco = preco;
+            this._quantidade = quantidade;
         }
 
         public double CalcularValorTotalSemDesconto()
         {
-            return quantidade * preco;
+            return _quantidade * _preco;
         }
 
         public double CalcularDesconto()
         {
-            if (quantidade >= 11 && quantidade <= 20)
+            if (_quantidade >= 11 && _quantidade <= 20)
             {
                 return 0.1;
             }
-            else if (quantidade >= 21 && quantidade <= 50)
+            else if (_quantidade >= 21 && _quantidade <= 50)
             {
                 return 0.2;
             }
-            else if (quantidade > 50)
+            else if (_quantidade > 50)
             {
                 return 0.25;
             }
@@ -64,17 +64,17 @@ namespace DescontoProduto
 
         public string ObterNome()
         {
-            return nome;
+            return _nome;
         }
 
         public double ObterPreco()
         {
-            return preco;
+            return _preco;
         }
 
         public int ObterQuantidade()
         {
-            return quantidade;
+            return _quantidade;
         }
 
         // Função para ler um valor double do console
